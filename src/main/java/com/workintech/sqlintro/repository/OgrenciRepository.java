@@ -52,21 +52,21 @@ public interface OgrenciRepository extends JpaRepository<Ogrenci, Long> {
 
     //Öğrenciler tablosundaki en genç öğrenciyi listeleyiniz.
     String QUESTION_8 = "SELECT * FROM ogrenci" +
-            "ORDER BY dtarih ASC" +
-            "LIMIT 1";
+            " ORDER BY dtarih DESC" +
+            " LIMIT 1";
     @Query(value = QUESTION_8, nativeQuery = true)
     Ogrenci findYoungestStudent();
 
     //Öğrenciler tablosundaki en yaşlı öğrenciyi listeleyiniz.
     String QUESTION_9 = "SELECT * FROM ogrenci" +
-            "ORDER BY dtarih DESC" +
-            "LIMIT 1";
+            " ORDER BY dtarih ASC" +
+            " LIMIT 1";
     @Query(value = QUESTION_9, nativeQuery = true)
     Ogrenci findElderStudent();
 
     //İkinci harfi E olan ogrencileri listeleyiniz.
     String QUESTION_10 = "SELECT * FROM ogrenci" +
-            "WHERE ad ILIKE '_e%";
+            " WHERE ad ILIKE '_e%' ";
     @Query(value = QUESTION_10, nativeQuery = true)
     List<Ogrenci> findStudentsSecondLetterOfN();
 
